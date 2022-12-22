@@ -33,18 +33,20 @@ class _BookScreenState extends ConsumerState<BookScreen> {
         centerTitle: true,
       ),
       body: bookState.maybeWhen(
-        orElse: () => const Center(
-            child: CupertinoActivityIndicator(
-          radius: 20,
-        )),
-        success: (books) => ListView(
-          children: books
-              .map(
-                (book) => ItemBook(book: book),
-              )
-              .toList(),
-        ),
-      ),
+          orElse: () => const Center(
+                  child: CupertinoActivityIndicator(
+                radius: 20,
+              )),
+          success: (books) => ListView(
+                children: books
+                    .map(
+                      (book) => ItemBook(book: book),
+                    )
+                    .toList(),
+              ),
+          failure: (fail) => Center(
+                child: Text(fail.message ?? ""),
+              )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
