@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:practice_grpc/book_screen.dart';
+import 'package:practice_grpc/presentation/book_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
